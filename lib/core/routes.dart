@@ -1,0 +1,1 @@
+// uygulamada sayfalar ve naavigasyon işlmeleri 
