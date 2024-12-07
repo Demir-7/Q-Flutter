@@ -13,9 +13,18 @@
 
 ## Özellikler
  -[Karbon Ayak İzi Hesaplama: Kullanıcılar, günlük faaliyetleri ve alışkanlıkları hakkında bilgi girerek kişisel karbon ayak izlerini hesaplayabilirler.]
+ 
+ 
  -[Veri Girişi ve Takibi: Ulaşım, enerji kullanımı, atık üretimi, beslenme gibi alanlarda yapılan aktiviteler kaydedilebilir ve karbon salınımı hesaplanabilir.]
+ 
+ 
+ 
  -[Raporlama ve Grafikler: Kullanıcılar, karbon ayak izlerinin ne kadar olduğu ve zaman içindeki değişimleri raporlar ve grafikler aracılığıyla görebilirler.]
- -[Sürdürülebilirlik Önerileri: Kullanıcılara karbon ayak izlerini azaltmak için enerji verimli çözümler, çevre dostu ulaşım yöntemleri gibi öneriler sunulur.]
+ 
+ 
+ 
+ -[Sürdürülebilirlik Önerileri: Kullanıcılara karbon ayak izlerini azaltmak için enerji verimli çözümler, çevre dostu ulaşım yöntemleri gibi 
+ öneriler sunulur.]
 
 
 ## Kullanılan Teknolojiler
