@@ -1,1 +1,0 @@
-// açılış ekranımız buraya gelicek 

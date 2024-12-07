@@ -1,1 +1,1 @@
-// TEMALANDIRMA + RENKLER 
+//temalandırma + renkler
