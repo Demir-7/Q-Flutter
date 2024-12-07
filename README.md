@@ -29,7 +29,11 @@
 
 ## Kullanılan Teknolojiler
  -Flutter
+ 
+ 
  -Dart
+ 
+ 
  -ChatGPT
  
 
@@ -38,8 +42,15 @@
 
 ### Gereksinimler
  -Flutter 3.24.5
+ 
+ 
+ 
  -Dart 3.5.4
+
+
+
  -DevTools 2.37.3
+
 
 
  ### Kurulum Adımları
@@ -62,21 +73,58 @@
 
 ## Proje Yapısı
 
+
+
 lib/
+
+
+
 modeller/   #Veri Modelleri
+
+
+
 ekranlar/   #Uygulama Ekranları
+
+
+
 widgets/    #Tekrar kullanılabilir arayüz öğeleri
+
+
+
 servisler/  #API Servisleri
+
+
+
+
 yardımcılar/#Yardımcı Fonksiyonlar
 
 
 ## Ekran Görüntüleri(Görüntüler appscreenshot dosyasındadır.)
 
+
+
 home_screen.png
+
+
 ipucları_screen.png
+
+
+
 profile_screen.png
+
+
+
+
+
+
 loading_ssscreen.png
+
+
+
 side_navigation.png
+
+
+
 world_rank_screen.png
 
 
