@@ -6,7 +6,7 @@
 [Uygulamanız, karbon ayak izi hesaplama özelliği üzerine odaklanan bir mobil uygulama fikrine sahip. Bu uygulama, kullanıcıların günlük aktiviteleri ve alışkanlıkları üzerinden karbon ayak izlerini hesaplamalarına olanak tanır. Bu sayede, bireyler ve topluluklar, çevre üzerindeki etkilerini daha iyi anlayabilir ve sürdürülebilir yaşam tarzlarına yönelik adımlar atabilirler.]
 
 ## Ekibimiz
-    **Danışman:** Keyvan Arasteh
+    **Danışman:** Keyvan Arasteh [https://github.com/keyvanarasteh](Keyvan Arasteh)
     **Takım Üyeleri:**
     Fatih Demir [https://github.com/Demir-7]
     Anıl Dursun [https://github.com/AnilD-8]
@@ -60,7 +60,7 @@
   
  2. Proje Klasörüne gidin.
 
- cd[flutter.app]
+ cd [flutter.app]
 
  3. Gerekli paketleri yükleyin.
 
@@ -75,28 +75,19 @@
 
 
 
+
 lib/
 
+├── modeller/ # Veri modelleri
 
+├── ekranlar/ # Uygulama ekranları
 
-modeller/   #Veri Modelleri
+├── widgets/ # Tekrar kullanılabilir arayüz öğeleri
 
+├── servisler/ # API servisleri
 
+└── yardımcılar/ # Yardımcı fonksiyonlar
 
-ekranlar/   #Uygulama Ekranları
-
-
-
-widgets/    #Tekrar kullanılabilir arayüz öğeleri
-
-
-
-servisler/  #API Servisleri
-
-
-
-
-yardımcılar/#Yardımcı Fonksiyonlar
 
 
 ## Ekran Görüntüleri(Görüntüler appscreenshot dosyasındadır.)
