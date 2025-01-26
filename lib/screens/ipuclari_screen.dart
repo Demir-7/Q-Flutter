@@ -17,7 +17,7 @@
 import 'package:flutter/material.dart';
 
 class IpuclariScreen extends StatelessWidget {
-  const IpuclariScreen({Key? key}) : super(key: key);
+  const IpuclariScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
