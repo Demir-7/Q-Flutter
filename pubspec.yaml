@@ -15,6 +15,7 @@ dependencies:
   go_router: ^14.6.1
   lottie: ^3.1.3
   shared_preferences: ^2.3.3
+  url_launcher: ^6.0.9   # Bu satırda hata yok
 
 dev_dependencies:
   flutter_test:
@@ -26,6 +27,7 @@ flutter:
   assets:
     - assets/images/
     - assets/images/onboarding_images/
+    - assets/images/hesaplama_araci/
     - assets/icons/
     - assets/languages/
     - assets/motions/

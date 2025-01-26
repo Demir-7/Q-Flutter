@@ -1,3 +1,4 @@
+// lib/screens/tasarruf_onerileri.dart
 import 'package:flutter/material.dart';
 
 class TasarrufOnerileri extends StatelessWidget {
@@ -10,7 +11,7 @@ class TasarrufOnerileri extends StatelessWidget {
         title: const Text('Tasarruf Önerileri'),
       ),
       body: const Center(
-        child: Text('Tasarruf Önerileri Sayfası'),
+        child: Text('Tasarruf önerileri burada görünecek.'),
       ),
     );
   }
