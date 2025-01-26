@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/screens/ipuclari_screen.dart';
-import 'package:flutter_app/screens/onboarding_page.dart';
 import 'package:flutter_app/screens/profile_screen.dart';
 import 'package:go_router/go_router.dart';
 import '../screens/loading_screen.dart';
 import '../screens/home_screen.dart';
+import '../screens/onboarding_page.dart'; // OnboardingPage sınıfını içe aktarıyoruz
 
 // Router yapılandırması
 final GoRouter router = GoRouter(
@@ -12,7 +12,7 @@ final GoRouter router = GoRouter(
   routes: [
     GoRoute(
       path: '/onboarding', // onboarding ekranı
-      builder: (context, state) => const OnboardingPage1(),
+      builder: (context, state) => const OnboardingPage(), // OnboardingPage kullanılıyor
     ),
     GoRoute(
       path: '/',
