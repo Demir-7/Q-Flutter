@@ -63,58 +63,34 @@ class HomeScreen extends StatelessWidget {
             ),
             ListTile(
               leading: const Icon(CupertinoIcons.settings),
+              title: const Text('Hesaplama Araçları'),
+              onTap: () {
+                Navigator.pop(context);
+                context.go('/hesaplama_araclari'); // Hesaplama araçları sayfasına git
+              },
+            ),
+            ListTile(
+              leading: const Icon(CupertinoIcons.time),
+              title: const Text('Geçmiş Hesaplamalar'),
+              onTap: () {
+                Navigator.pop(context);
+                context.go('/gecmis_hesaplamalar'); // Geçmiş hesaplamalar sayfasına git
+              },
+            ),
+            ListTile(
+              leading: const Icon(CupertinoIcons.leaf_arrow_circlepath),
+              title: const Text('Tasarruf Önerileri'),
+              onTap: () {
+                Navigator.pop(context);
+                context.go('/tasarruf_onerileri'); // Tasarruf önerileri sayfasına git
+              },
+            ),
+            ListTile(
+              leading: const Icon(CupertinoIcons.settings),
               title: const Text('Ayarlar'),
               onTap: () {
                 Navigator.pop(context);
                 context.go('/settings'); // Ayarlar sayfasına git
-              },
-            ),
-            ListTile(
-              leading: const Icon(CupertinoIcons.info),
-              title: const Text('Hakkında'),
-              onTap: () {
-                Navigator.pop(context);
-                context.go('/about'); // Hakkında sayfasına git
-              },
-            ),
-            ListTile(
-              leading: const Icon(CupertinoIcons.question_circle),
-              title: const Text('Yardım'),
-              onTap: () {
-                Navigator.pop(context);
-                context.go('/help'); // Yardım sayfasına git
-              },
-            ),
-            ListTile(
-              leading: const Icon(CupertinoIcons.bell),
-              title: const Text('Bildirimler'),
-              onTap: () {
-                Navigator.pop(context);
-                context.go('/notifications'); // Bildirimler sayfasına git
-              },
-            ),
-            ListTile(
-              leading: const Icon(CupertinoIcons.mail),
-              title: const Text('Mesajlar'),
-              onTap: () {
-                Navigator.pop(context);
-                context.go('/messages'); // Mesajlar sayfasına git
-              },
-            ),
-            ListTile(
-              leading: const Icon(CupertinoIcons.star),
-              title: const Text('Öneriler'),
-              onTap: () {
-                Navigator.pop(context);
-                context.go('/recommendations'); // Öneriler sayfasına git
-              },
-            ),
-            ListTile(
-              leading: const Icon(CupertinoIcons.text_bubble),
-              title: const Text('Dil Seçenekleri'),
-              onTap: () {
-                Navigator.pop(context);
-                context.go('/languages'); // Dil seçenekleri sayfasına git
               },
             ),
           ],
@@ -145,10 +121,6 @@ class HomeScreen extends StatelessWidget {
             label: 'Ana Sayfa', // Ana sayfa etiketi
           ),
           BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.globe),
-            label: 'Dünya Sıralaması', // Dünya sıralaması etiketi
-          ),
-          BottomNavigationBarItem(
             icon: Icon(CupertinoIcons.lightbulb),
             label: 'İpuçları', // İpuçları etiketi
           ),
@@ -162,12 +134,9 @@ class HomeScreen extends StatelessWidget {
             // Ana Sayfa
             context.go('/home');  // Ana sayfaya git
           } else if (index == 1) {
-            // Dünya Sıralaması
-            context.go('/dunyasiralama');
-          } else if (index == 2) {
             // İpuçları
             context.go('/ipuclari');
-          } else if (index == 3) {
+          } else if (index == 2) {
             // Profil
             context.go('/profile');  // Profil sayfasına git
           }

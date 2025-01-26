@@ -1,10 +1,60 @@
 import 'package:flutter/material.dart';
-import 'core/routes.dart'; 
+import 'package:go_router/go_router.dart';
+import 'screens/loading_screen.dart';
+import 'screens/home_screen.dart';
+import 'screens/profile_screen.dart';
+import 'screens/ipuclari_screen.dart';
+import 'screens/onboarding_page.dart';
+import 'screens/hesaplama_araclari.dart';
+import 'screens/gecmis_hesaplamalar.dart';
+import 'screens/tasarruf_onerileri.dart';
+import 'screens/settings_page.dart'; // SettingsPage widget'ını import ettik
 
 void main() {
-  WidgetsFlutterBinding.ensureInitialized(); // Flutter widget'larını başlatır
   runApp(const MyApp());
 }
+
+final GoRouter _router = GoRouter(
+  routes: [
+    GoRoute(
+      path: '/onboarding',
+      builder: (context, state) => const OnboardingPage(),
+    ),
+    GoRoute(
+      path: '/',
+      builder: (context, state) => const LoadingScreen(),
+    ),
+    GoRoute(
+      path: '/home',
+      builder: (context, state) => const HomeScreen(),
+    ),
+    GoRoute(
+      path: '/profile',
+      builder: (context, state) => const ProfileScreen(),
+    ),
+    GoRoute(
+      path: '/ipuclari',
+      builder: (context, state) => const IpuclariScreen(),
+    ),
+    GoRoute(
+      path: '/hesaplama_araclari',
+      builder: (context, state) => const HesaplamaAraclari(),
+    ),
+    GoRoute(
+      path: '/gecmis_hesaplamalar',
+      builder: (context, state) => const GecmisHesaplamalar(),
+    ),
+    GoRoute(
+      path: '/tasarruf_onerileri',
+      builder: (context, state) => const TasarrufOnerileri(),
+    ),
+    GoRoute(
+      path: '/settings',
+      builder: (context, state) => const SettingsPage(),
+    ),
+  ],
+  initialLocation: '/onboarding',
+);
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -15,10 +65,9 @@ class MyApp extends StatelessWidget {
       title: 'Flutter App',
       theme: ThemeData(
         primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      routerConfig: router, // go_router yapılandırmasını kullanır
-      debugShowCheckedModeBanner: false, // Debug bandını kaldırır
+      debugShowCheckedModeBanner: false, // DEBUG yazısını kaldırmak için
+      routerConfig: _router,
     );
   }
 }

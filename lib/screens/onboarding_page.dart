@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class OnboardingPage extends StatelessWidget {
   const OnboardingPage({super.key});
@@ -6,32 +7,40 @@ class OnboardingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: OnboardingPagePresenter(pages: [
-        OnboardingPageModel(
-          title: 'Karbon Ayak İzi Nedir?',
-          description: 'Karbon ayak izi, birim karbondioksit cinsinden ölçülen,üretilen sera gazı miktarı açısından insan faaliyetlerinin çevreye verdiği zararın ölçüsüdür.',
-          imageUrl: 'assets/images/onboarding_images/3.png',
-          bgColor: Colors.indigo,
-        ),
-        OnboardingPageModel(
-          title: 'Karbon Ayak İzini Etkileyen Faktörler',
-          description: 'Elektrik Tüketimi, Yakıt Tüketimi, Su Tüketimi, Yiyecek Tüketimi',
-          imageUrl: 'assets/images/onboarding_images/6.png',
-          bgColor: const Color(0xff1eb090),
-        ),
-        OnboardingPageModel(
-          title: 'Karbon ayak izi genellikle doğal kaynakların tükenmesine, ormanların tahrip edilmesine ve biyolojik çeşitliliğin azalmasına sebep olur.',
-          description: '',
-          imageUrl: 'assets/images/onboarding_images/5.png',
-          bgColor: const Color(0xfffeae4f),
-        ),
-        OnboardingPageModel(
-          title: 'Uygulamamızı takip et.',
-          description: 'Uygulamamızı kullanarak kolayca karbon ayak iznizi hesaplayabilir ve azaltmak için neler yapabileceğinizi öğrenebilirsiniz.',
-          imageUrl: 'assets/images/onboarding_images/4.png',
-          bgColor: Colors.purple,
-        ),
-      ]),
+      body: OnboardingPagePresenter(
+        pages: [
+          OnboardingPageModel(
+            title: 'Karbon Ayak İzi Nedir?',
+            description: 'Bireylerin faaliyetleri sonucu atmosfere yayılan sera gazıdır.',
+            imageUrl: 'assets/images/onboarding_images/3web_clean.png',
+            bgColor: Colors.indigo,
+          ),
+          OnboardingPageModel(
+            title: 'Karbon Ayak İzini Etkileyen Faktörler',
+            description: 'Elektrik Tüketimi, Yakıt Tüketimi, Su Tüketimi, Yiyecek Tüketimi',
+            imageUrl: 'assets/images/onboarding_images/6.png',
+            bgColor: const Color(0xff1eb090),
+          ),
+          OnboardingPageModel(
+            title: 'Doğal kaynakların tükenmesine,',
+            description: 'ormanların tahribine ve biyolojik çeşitliliğin azalmasına sebep olur.',
+            imageUrl: 'assets/images/onboarding_images/5web.webp',
+            bgColor: const Color(0xfffeae4f),
+          ),
+          OnboardingPageModel(
+            title: 'Uygulamamızı kullanarak kolayca.',
+            description: 'karbon ayak izinizi hesaplayabilir ve azaltmak için bilgilenebilirsiniz.',
+            imageUrl: 'assets/images/onboarding_images/4web.webp',
+            bgColor: Colors.purple,
+          ),
+        ],
+        onSkip: () {
+          context.go('/home');  // Ana sayfaya git
+        },
+        onFinish: () {
+          context.go('/home');  // Ana sayfaya git
+        },
+      ),
     );
   }
 }
@@ -166,9 +175,9 @@ class _OnboardingPageState extends State<OnboardingPagePresenter> {
                         if (_currentPage == widget.pages.length - 1) {
                           widget.onFinish?.call();
                         } else {
-                          _pageController.animateToPage(_currentPage + 1,
-                              curve: Curves.easeInOutCubic,
-                              duration: const Duration(milliseconds: 250));
+                          _pageController.nextPage(
+                              duration: const Duration(milliseconds: 250),
+                              curve: Curves.easeInOutCubic);
                         }
                       },
                       child: Row(
