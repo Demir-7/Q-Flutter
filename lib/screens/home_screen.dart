@@ -69,14 +69,7 @@ class HomeScreen extends StatelessWidget {
                 context.go('/hesaplama_araclari'); // Hesaplama araçları sayfasına git
               },
             ),
-            ListTile(
-              leading: const Icon(CupertinoIcons.time),
-              title: const Text('Geçmiş Hesaplamalar'),
-              onTap: () {
-                Navigator.pop(context);
-                context.go('/gecmis_hesaplamalar'); // Geçmiş hesaplamalar sayfasına git
-              },
-            ),
+            
             ListTile(
               leading: const Icon(CupertinoIcons.leaf_arrow_circlepath),
               title: const Text('Tasarruf Önerileri'),

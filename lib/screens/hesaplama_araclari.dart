@@ -14,7 +14,6 @@ class _HesaplamaAraclariState extends State<HesaplamaAraclari> {
   final TextEditingController _yillikTuketimController = TextEditingController();
   final TextEditingController _kwhController = TextEditingController();
   final TextEditingController _tuketimController = TextEditingController();
-
   String _yakitTuru = 'Benzin';
   String _isinmaTuru = 'Doğalgaz';
   double _totalCO2 = 0.0;
@@ -63,7 +62,7 @@ class _HesaplamaAraclariState extends State<HesaplamaAraclari> {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: const Text('Sonuçlar', textAlign: TextAlign.center), // Başlık ortalandı
+          title: const Text('Sonuçlar', textAlign: TextAlign.center),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -73,12 +72,11 @@ class _HesaplamaAraclariState extends State<HesaplamaAraclari> {
               const Text(
                 '2021 yılında Türkiye kişi başı sera gazı salım oranı: 6.6 ton',
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                textAlign: TextAlign.center, // Bu metin de ortalandı
+                textAlign: TextAlign.center,
               ),
               const SizedBox(height: 16),
               TextButton(
                 onPressed: () {
-                  // Linke yönlendirme
                   launchURL();
                 },
                 child: const Text(
@@ -103,10 +101,8 @@ class _HesaplamaAraclariState extends State<HesaplamaAraclari> {
 
   void launchURL() async {
     final url = Uri.parse('https://www.tema.org.tr/anasayfa');
-    // ignore: deprecated_member_use
-    if (await canLaunch(url.toString())) {
-      // ignore: deprecated_member_use
-      await launch(url.toString());
+    if (await canLaunchUrl(url)) {  // canLaunch yerine canLaunchUrl kullanıldı
+      await launchUrl(url);  // launch yerine launchUrl kullanıldı
     } else {
       throw 'Link açılamadı: $url';
     }
@@ -120,10 +116,9 @@ class _HesaplamaAraclariState extends State<HesaplamaAraclari> {
       ),
       body: Stack(
         children: [
-          // Arka planda oval_ayak.png resmi ekleniyor, opaklığı %20
           Positioned.fill(
             child: Opacity(
-              opacity: 0.5, // Saydamlık %50 (0.0-1.0 arası)
+              opacity: 0.5,
               child: Image.asset(
                 'assets/images/hesaplama_araci/agac.png',
                 fit: BoxFit.cover,
@@ -136,7 +131,6 @@ class _HesaplamaAraclariState extends State<HesaplamaAraclari> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  // Hava Tüketimi
                   _SectionCard(
                     title: 'Hava Tüketimi',
                     imagePath: 'assets/images/hesaplama_araci/hava_oval.png',
@@ -147,8 +141,6 @@ class _HesaplamaAraclariState extends State<HesaplamaAraclari> {
                     ],
                   ),
                   const SizedBox(height: 16),
-
-                  // Kara Tüketimi
                   _SectionCard(
                     title: 'Kara Tüketimi',
                     imagePath: 'assets/images/hesaplama_araci/yol_oval.png',
@@ -156,7 +148,7 @@ class _HesaplamaAraclariState extends State<HesaplamaAraclari> {
                       _DropdownWithLabel(
                         label: 'Yakıt Türü',
                         items: const ['Benzin', 'Dizel', 'LPG'],
-                        selectedValue: _yakitTuru, // Seçilen değeri burada belirtiyoruz
+                        selectedValue: _yakitTuru,
                         onChanged: (value) {
                           setState(() {
                             _yakitTuru = value!;
@@ -164,14 +156,12 @@ class _HesaplamaAraclariState extends State<HesaplamaAraclari> {
                         },
                       ),
                       const SizedBox(height: 16),
-                      Text('Seçilen Yakıt Türü: $_yakitTuru'), // Seçilen yakıt türü burada gösterilecek
+                      Text('Seçilen Yakıt Türü: $_yakitTuru'),
                       const SizedBox(height: 16),
                       _TextFieldWithLabel(label: 'Yıllık Toplam Tüketim (Litre)', controller: _yillikTuketimController),
                     ],
                   ),
                   const SizedBox(height: 16),
-
-                  // Elektrik Tüketimi
                   _SectionCard(
                     title: 'Elektrik Tüketimi',
                     imagePath: 'assets/images/hesaplama_araci/elektrik_oval.png',
@@ -180,8 +170,6 @@ class _HesaplamaAraclariState extends State<HesaplamaAraclari> {
                     ],
                   ),
                   const SizedBox(height: 16),
-
-                  // Isınma Tüketimi
                   _SectionCard(
                     title: 'Isınma Tüketimi',
                     imagePath: 'assets/images/hesaplama_araci/ısınma1_oval.png',
@@ -189,7 +177,7 @@ class _HesaplamaAraclariState extends State<HesaplamaAraclari> {
                       _DropdownWithLabel(
                         label: 'Yakıt Türü',
                         items: const ['Doğalgaz', 'Kömür'],
-                        selectedValue: _isinmaTuru, // Seçilen değeri burada belirtiyoruz
+                        selectedValue: _isinmaTuru,
                         onChanged: (value) {
                           setState(() {
                             _isinmaTuru = value!;
@@ -201,8 +189,6 @@ class _HesaplamaAraclariState extends State<HesaplamaAraclari> {
                     ],
                   ),
                   const SizedBox(height: 16),
-
-                  // Hesapla Butonu
                   ElevatedButton(
                     onPressed: _hesapla,
                     child: const Text('Hesapla'),
@@ -222,14 +208,18 @@ class _SectionCard extends StatelessWidget {
   final String imagePath;
   final List<Widget> children;
 
-  const _SectionCard({required this.title, required this.imagePath, required this.children});
+  const _SectionCard({
+    required this.title,
+    required this.imagePath,
+    required this.children,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Card(
       elevation: 4,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      color: Colors.white.withOpacity(0.7), // Saydamlık ekleniyor
+      color: Colors.white.withOpacity(0.7),
       child: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
@@ -285,13 +275,13 @@ class _DropdownWithLabel extends StatelessWidget {
   final String label;
   final List<String> items;
   final ValueChanged<String?> onChanged;
-  final String selectedValue; // Seçilen değeri tutmak için yeni bir parametre
+  final String selectedValue;
 
   const _DropdownWithLabel({
     required this.label,
     required this.items,
     required this.onChanged,
-    required this.selectedValue, // Yeni parametreyi ekledik
+    required this.selectedValue,
   });
 
   @override
@@ -303,7 +293,7 @@ class _DropdownWithLabel extends StatelessWidget {
         const SizedBox(height: 8),
         DropdownButton<String>(
           isExpanded: true,
-          value: selectedValue, // Seçilen değeri burada belirtiyoruz
+          value: selectedValue,
           onChanged: onChanged,
           hint: const Text('Seçiniz'),
           items: items.map((item) {

@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/screens/hesaplama_araclari.dart';  // Bu satırı sadece bir kez ekleyin
 import 'package:go_router/go_router.dart';
 import 'screens/loading_screen.dart';
 import 'screens/home_screen.dart';
 import 'screens/profile_screen.dart';
 import 'screens/ipuclari_screen.dart';
 import 'screens/onboarding_page.dart';
-import 'screens/hesaplama_araclari.dart';
-import 'screens/gecmis_hesaplamalar.dart';
 import 'screens/tasarruf_onerileri.dart';
 import 'screens/settings_page.dart'; // SettingsPage widget'ını import ettik
 
@@ -38,11 +37,7 @@ final GoRouter _router = GoRouter(
     ),
     GoRoute(
       path: '/hesaplama_araclari',
-      builder: (context, state) => const HesaplamaAraclari(),
-    ),
-    GoRoute(
-      path: '/gecmis_hesaplamalar',
-      builder: (context, state) => const GecmisHesaplamalar(),
+      builder: (context, state) =>  const HesaplamaAraclari(),
     ),
     GoRoute(
       path: '/tasarruf_onerileri',
@@ -55,6 +50,10 @@ final GoRouter _router = GoRouter(
   ],
   initialLocation: '/onboarding',
 );
+
+class GecmisHesaplamalar {
+  const GecmisHesaplamalar();
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
