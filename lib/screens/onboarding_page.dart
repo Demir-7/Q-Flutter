@@ -35,10 +35,10 @@ class OnboardingPage extends StatelessWidget {
           ),
         ],
         onSkip: () {
-          context.go('/home');  // Ana sayfaya git
+          context.go('/home');  // Kullanıcı atladığında doğrudan ana sayfaya git
         },
         onFinish: () {
-          context.go('/home');  // Ana sayfaya git
+          context.go('/loading');  // Tamamlandığında LoadingScreen'e yönlendir
         },
       ),
     );

@@ -20,8 +20,8 @@ final GoRouter _router = GoRouter(
       builder: (context, state) => const OnboardingPage(),
     ),
     GoRoute(
-      path: '/',
-      builder: (context, state) => const LoadingScreen(),
+      path: '/loading',
+      builder: (context, state) => const LoadingScreen(), // /loading için rota ekledik
     ),
     GoRoute(
       path: '/home',
@@ -41,14 +41,14 @@ final GoRouter _router = GoRouter(
     ),
     GoRoute(
       path: '/tasarruf_onerileri',
-      builder: (context, state) => const TasarrufOnerileri(),
+      builder: (context, state) => TasarrufOnerileri(),
     ),
     GoRoute(
       path: '/settings',
       builder: (context, state) => const SettingsPage(),
     ),
   ],
-  initialLocation: '/onboarding',
+  initialLocation: '/onboarding', // Başlangıç olarak /onboarding ekranını gösteriyoruz
 );
 
 class GecmisHesaplamalar {

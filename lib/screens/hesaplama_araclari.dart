@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HesaplamaAraclari extends StatefulWidget {
   const HesaplamaAraclari({super.key});
@@ -19,6 +20,45 @@ class _HesaplamaAraclariState extends State<HesaplamaAraclari> {
   double _totalCO2 = 0.0;
 
   void _hesapla() {
+    // Veri Kontrolleri
+    if (_ucusSuresiController.text.isEmpty ||
+        _ucusSayisiController.text.isEmpty ||
+        _yillikTuketimController.text.isEmpty ||
+        _kwhController.text.isEmpty ||
+        _tuketimController.text.isEmpty) {
+      // Yeni pencere (dialog) ile hata mesajını göster
+      showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: Text(
+              'Hata',
+              textAlign: TextAlign.center,
+              style: GoogleFonts.poppins(
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
+                color: Colors.red,
+              ),
+            ),
+            content: const Text(
+              'Lütfen tüm alanları doldurun!',
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 18),
+            ),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: const Text('Tamam'),
+              ),
+            ],
+          );
+        },
+      );
+      return;
+    }
+
     // Hava Tüketimi Hesaplaması
     double havaTuketimi = double.tryParse(_ucusSuresiController.text) ?? 0.0;
     double havaSayisi = double.tryParse(_ucusSayisiController.text) ?? 0.0;
@@ -58,11 +98,22 @@ class _HesaplamaAraclariState extends State<HesaplamaAraclari> {
     double agacBorcu = totalCO2Ton.ceilToDouble();
 
     // Sonucu ekranda göster
+    setState(() {
+    });
+
     showDialog(
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: const Text('Sonuçlar', textAlign: TextAlign.center),
+          title: Text(
+            'Sonuçlar',
+            textAlign: TextAlign.center,
+            style: GoogleFonts.poppins(
+              fontSize: 22,
+              fontWeight: FontWeight.bold,
+              color: Colors.blueGrey,
+            ),
+          ),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -101,8 +152,8 @@ class _HesaplamaAraclariState extends State<HesaplamaAraclari> {
 
   void launchURL() async {
     final url = Uri.parse('https://www.tema.org.tr/anasayfa');
-    if (await canLaunchUrl(url)) {  // canLaunch yerine canLaunchUrl kullanıldı
-      await launchUrl(url);  // launch yerine launchUrl kullanıldı
+    if (await canLaunchUrl(url)) {
+      await launchUrl(url);
     } else {
       throw 'Link açılamadı: $url';
     }
@@ -134,6 +185,7 @@ class _HesaplamaAraclariState extends State<HesaplamaAraclari> {
                   _SectionCard(
                     title: 'Hava Tüketimi',
                     imagePath: 'assets/images/hesaplama_araci/hava_oval.png',
+                    icon: Icons.airplanemode_active,
                     children: [
                       _TextFieldWithLabel(label: 'Uçuş Süresi (Saat)', controller: _ucusSuresiController),
                       const SizedBox(height: 16),
@@ -144,6 +196,7 @@ class _HesaplamaAraclariState extends State<HesaplamaAraclari> {
                   _SectionCard(
                     title: 'Kara Tüketimi',
                     imagePath: 'assets/images/hesaplama_araci/yol_oval.png',
+                    icon: Icons.directions_car,
                     children: [
                       _DropdownWithLabel(
                         label: 'Yakıt Türü',
@@ -165,6 +218,7 @@ class _HesaplamaAraclariState extends State<HesaplamaAraclari> {
                   _SectionCard(
                     title: 'Elektrik Tüketimi',
                     imagePath: 'assets/images/hesaplama_araci/elektrik_oval.png',
+                    icon: Icons.bolt,
                     children: [
                       _TextFieldWithLabel(label: 'Yıllık Tüketim (kWh)', controller: _kwhController),
                     ],
@@ -173,6 +227,7 @@ class _HesaplamaAraclariState extends State<HesaplamaAraclari> {
                   _SectionCard(
                     title: 'Isınma Tüketimi',
                     imagePath: 'assets/images/hesaplama_araci/ısınma1_oval.png',
+                    icon: Icons.home,
                     children: [
                       _DropdownWithLabel(
                         label: 'Yakıt Türü',
@@ -207,10 +262,12 @@ class _SectionCard extends StatelessWidget {
   final String title;
   final String imagePath;
   final List<Widget> children;
+  final IconData icon;
 
   const _SectionCard({
     required this.title,
     required this.imagePath,
+    required this.icon,
     required this.children,
   });
 
@@ -234,6 +291,12 @@ class _SectionCard extends StatelessWidget {
                 ),
                 const SizedBox(width: 8),
                 Text(title, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                const SizedBox(width: 8),
+                Icon(
+                  icon,
+                  size: 24,
+                  color: Colors.blueGrey,
+                ),
               ],
             ),
             const SizedBox(height: 16),
