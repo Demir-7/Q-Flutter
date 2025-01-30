@@ -92,7 +92,27 @@ lib/
 
 ## Ekran Görüntüleri(Görüntüler appscreenshot dosyasındadır.)
 
-![alt text](appscreenshot/hesaplama.png)
+![alt text](appscreenshot/onb1.png)
+![alt text](appscreenshot/onb2.png)
+![alt text](appscreenshot/onb3.png)
+![alt text](appscreenshot/onb4.png)
+![alt text](appscreenshot/loading.png)
+![alt text](appscreenshot/home.png)
+![alt text](appscreenshot/home1.png)
+![alt text](appscreenshot/sidenavi.png)
+![alt text](appscreenshot/hesaplama.png) 
+![alt text](appscreenshot/hesaplama2.png) 
+![alt text](appscreenshot/hesaplama3.png) 
+![alt text](appscreenshot/hesaplamaurl.png)
+![alt text](appscreenshot/tasarruf.png) 
+![alt text](appscreenshot/tasarruf1.png)
+![alt text](appscreenshot/profil.png) 
+![alt text](appscreenshot/profil1.png)
+
+
+
+
+
 
 
 
