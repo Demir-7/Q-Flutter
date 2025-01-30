@@ -110,8 +110,8 @@ lib/
 ![alt text](appscreenshot/profil1.png)
 
 ## Video.demo
-<video controls src="video/uygulama_kayit1.mp4" title="Title"></video>
 <video controls src="video/Mobil Uygulama Aralar_free.mp4" title="Title"></video>
+<video controls src="video/uygulama_kayit1.mp4" title="Title"></video>
 
 
 
