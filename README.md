@@ -109,8 +109,7 @@ lib/
 ![alt text](appscreenshot/profil.png) 
 ![alt text](appscreenshot/profil1.png)
 
-## Video.demo
-<video controls src="video/uygulama_kayit1.mp4" title="Title"></video>
+
 
 
 
