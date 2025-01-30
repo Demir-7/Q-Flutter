@@ -92,31 +92,8 @@ lib/
 
 ## Ekran Görüntüleri(Görüntüler appscreenshot dosyasındadır.)
 
+![alt text](appscreenshot/hesaplama.png)
 
-
-home_screen.png
-
-
-ipucları_screen.png
-
-
-
-profile_screen.png
-
-
-
-
-
-
-loading_ssscreen.png
-
-
-
-side_navigation.png
-
-
-
-world_rank_screen.png
 
 
 ## Lisans
