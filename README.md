@@ -111,7 +111,7 @@ lib/
 
 ## Video.demo
 
-<video controls src="uygulama_kayit.mp4" title="Title"></video>
+https://github.com/user-attachments/assets/128a9d93-b5ea-4980-a679-37e0fc69605a
 
 
 
